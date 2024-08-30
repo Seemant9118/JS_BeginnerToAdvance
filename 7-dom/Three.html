@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - create Element</title>
+  </head>
+  <style>
+    body {
+      box-sizing: border-box;
+      background-color: #212121;
+      color: white;
+    }
+  </style>
+  <body></body>
+
+  <script>
+    const h1 = document.createElement("h1");
+    console.log(h1);
+    h1.className = "heading";
+    h1.id = Math.round(Math.random() * 10 + 1);
+    h1.setAttribute("title", "generated title");
+    h1.style.backgroundColor = "green";
+    h1.style.padding = "12px";
+    h1.innerText = "Hi EveryOne, ";
+    const addedText = document.createTextNode("Seemant is here!");
+    h1.appendChild(addedText);
+    document.body.appendChild(h1);
+  </script>
+</html>

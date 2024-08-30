@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - edit and remove element</title>
+  </head>
+  <style>
+    body {
+      box-sizing: border-box;
+      background-color: #212121;
+      color: white;
+    }
+  </style>
+  <body>
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+
+    <script>
+      // not a optimize way but working,
+      // because innnerHTML/innerTEXT traversing whole node of DOM and then changes and also it always replace existing content
+      function addLanguage(langName) {
+        const li = document.createElement("li");
+        li.setAttribute("class", "languageItem");
+        li.innerHTML = `${langName}`;
+        document.querySelector(".language").appendChild(li);
+      }
+      addLanguage("Python");
+      addLanguage("TypeScript");
+
+      //   this is optmize way to add a text in tag using createTextNode and then using appendChild method to add in document
+      function addLanguageInOptimization(langName) {
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector(".language").appendChild(li);
+      }
+      addLanguageInOptimization("Ruby");
+      addLanguageInOptimization("C++");
+
+      //   Edit : replaceWith method use for edit/update an element
+      const secondLang = document.querySelector("li:nth-child(2)");
+      //   secondLang.innerHTML = "Mojo"; // not  a optmizie way
+      const newLi = document.createElement("li");
+      newLi.textContent = "Mojo"; // more bekaar then innerHTML
+      secondLang.replaceWith(newLi);
+
+      const firstLang = document.querySelector("li:nth-child(1)");
+      firstLang.outerHTML = "<li>Kotlin</li>";
+
+      // remove : remove() is used for to remove particular element
+      const lastLang = document.querySelector("li:last-child");
+      lastLang.remove();
+    </script>
+  </body>
+</html>
