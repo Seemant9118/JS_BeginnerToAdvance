@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Switcher Game</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .parent {
+      background-color: white;
+      border: 2px solid black;
+      border-radius: 10px;
+      width: 900px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      padding: 10px;
+    }
+    .wrapper-divColors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
+    .description {
+      font-size: 24px;
+    }
+    .currentColorDiv {
+      border: 1px solid black;
+      padding: 8px;
+      border-radius: 5px;
+      font-size: 30px;
+    }
+  </style>
+  <body>
+    <div class="parent">
+      <h1>Color Swticher</h1>
+      <div class="wrapper-divColors">
+        <div
+          class="colorDiv"
+          style="
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            cursor: pointer;
+          "
+          onclick="changeColor('red')"
+        ></div>
+        <div
+          class="colorDiv"
+          style="
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            cursor: pointer;
+          "
+          onclick="changeColor('green')"
+        ></div>
+        <div
+          class="colorDiv"
+          style="
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            cursor: pointer;
+          "
+          onclick="changeColor('yellow')"
+        ></div>
+        <div
+          class="colorDiv"
+          style="
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            cursor: pointer;
+          "
+          onclick="changeColor('orange')"
+        ></div>
+      </div>
+      <span class="description"
+        >Click any color box to change background color of website</span
+      >
+      <div class="currentColorDiv">
+        <span>Current Color : </span>
+        <span class="currentColor">WHITE</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    function changeColor(color) {
+      const body = document.querySelector("body");
+      body.style.backgroundColor = color;
+
+      const currentColorBox = document.querySelector(".currentColor");
+      currentColorBox.innerText = color.toUpperCase();
+      currentColorBox.style.color = color;
+    }
+  </script>
+</html>
